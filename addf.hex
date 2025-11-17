@@ -1,0 +1,85 @@
+
+addf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+00000000000100b0 <_start>:
+   100b0:	1101                	addi	sp,sp,-32
+   100b2:	ec22                	sd	s0,24(sp)
+   100b4:	1000                	addi	s0,sp,32
+   100b6:	67c1                	lui	a5,0x10
+   100b8:	0ec7a787          	flw	fa5,236(a5) # 100ec <_start+0x3c>
+   100bc:	fef42627          	fsw	fa5,-20(s0)
+   100c0:	67c1                	lui	a5,0x10
+   100c2:	0f07a787          	flw	fa5,240(a5) # 100f0 <_start+0x40>
+   100c6:	fef42427          	fsw	fa5,-24(s0)
+   100ca:	f00007d3          	fmv.w.x	fa5,zero
+   100ce:	fef42227          	fsw	fa5,-28(s0)
+   100d2:	fec42707          	flw	fa4,-20(s0)
+   100d6:	fe842787          	flw	fa5,-24(s0)
+   100da:	00f777d3          	fadd.s	fa5,fa4,fa5
+   100de:	fef42227          	fsw	fa5,-28(s0)
+   100e2:	4781                	li	a5,0
+   100e4:	853e                	mv	a0,a5
+   100e6:	6462                	ld	s0,24(sp)
+   100e8:	6105                	addi	sp,sp,32
+   100ea:	8082                	ret
+
+Disassembly of section .rodata:
+
+00000000000100ec <__DATA_BEGIN__-0x1008>:
+   100ec:	0000                	unimp
+   100ee:	3f80                	fld	fs0,56(a5)
+   100f0:	0000                	unimp
+   100f2:	4000                	lw	s0,0(s0)
+
+Disassembly of section .comment:
+
+0000000000000000 <.comment>:
+   0:	3a434347          	fmsub.d	ft6,ft6,ft4,ft7,rmm
+   4:	2820                	fld	fs0,80(s0)
+   6:	3331                	addiw	t1,t1,-20
+   8:	322e                	fld	ft4,232(sp)
+   a:	302e                	fld	ft0,232(sp)
+   c:	312d                	addiw	sp,sp,-21
+   e:	7531                	lui	a0,0xfffec
+  10:	7562                	ld	a0,56(sp)
+  12:	746e                	ld	s0,248(sp)
+  14:	3175                	addiw	sp,sp,-3
+  16:	2932312b          	.insn	4, 0x2932312b
+  1a:	3120                	fld	fs0,96(a0)
+  1c:	2e322e33          	.insn	4, 0x2e322e33
+  20:	0030                	addi	a2,sp,8
+
+Disassembly of section .riscv.attributes:
+
+0000000000000000 <.riscv.attributes>:
+   0:	4641                	li	a2,16
+   2:	0000                	unimp
+   4:	7200                	ld	s0,32(a2)
+   6:	7369                	lui	t1,0xffffa
+   8:	01007663          	bgeu	zero,a6,14 <_start-0x1009c>
+   c:	003c                	addi	a5,sp,8
+   e:	0000                	unimp
+  10:	1004                	addi	s1,sp,32
+  12:	7205                	lui	tp,0xfffe1
+  14:	3676                	fld	fa2,376(sp)
+  16:	6934                	ld	a3,80(a0)
+  18:	7032                	.insn	2, 0x7032
+  1a:	5f31                	li	t5,-20
+  1c:	326d                	addiw	tp,tp,-5 # fffffffffffe0ffb <__global_pointer$+0xfffffffffffcf707>
+  1e:	3070                	fld	fa2,224(s0)
+  20:	615f 7032 5f31      	.insn	6, 0x5f317032615f
+  26:	3266                	fld	ft4,120(sp)
+  28:	3270                	fld	fa2,224(a2)
+  2a:	645f 7032 5f32      	.insn	6, 0x5f327032645f
+  30:	30703263          	.insn	4, 0x30703263
+  34:	7a5f 6369 7273      	.insn	6, 0x727363697a5f
+  3a:	7032                	.insn	2, 0x7032
+  3c:	5f30                	lw	a2,120(a4)
+  3e:	6d7a                	ld	s10,408(sp)
+  40:	756d                	lui	a0,0xffffb
+  42:	316c                	fld	fa1,224(a0)
+  44:	3070                	fld	fa2,224(s0)
+	...
